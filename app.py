@@ -21,12 +21,6 @@ class VehicleEntry(db.Model):
     entry_time = db.Column(db.DateTime, default = lambda: datetime.now(phtime))
     exit_time = db.Column(db.DateTime)
 
-    def __repr__(self):
-        return f"<Vehicle {self.plate_number} in slot {self.slot_number}>"
-
-with app.app_context():
-    db.create_all()
-
 @app.route('/')
 def index():
     return render_template('index.html')
